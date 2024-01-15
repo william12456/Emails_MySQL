@@ -1,7 +1,7 @@
 import pymysql
 from pathlib import Path
 import json
-from datetime import date  # Adicionando esta linha para importar o tipo de dado date
+from datetime import date
 
 # Definindo path
 path = Path.cwd() / 'arquivo.json'
@@ -38,6 +38,6 @@ for row in result:
 # Fechar a conexão
 connection.close()
 
-with open(path, 'w') as arquivo:
+with open(path, 'w', encoding='utf-8') as arquivo:
     # Imprimir o resultado como objetos chave-valor
-    json.dump(result_dict_list, arquivo, indent=2)
+    json.dump(result_dict_list, arquivo, indent=2, ensure_ascii=False)
